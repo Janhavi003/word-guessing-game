@@ -13,14 +13,13 @@ def guess_word():
     data = request.get_json()
     guess = data.get("guess", "").strip().lower()
 
-
     if not guess:
-        return jsonify({"message": "Please enter a guess."})
+        return jsonify({"message": "😅 Oops! Type a word first!"})
 
     if guess == SECRET_WORD:
-        return jsonify({"message": "🎉 Correct! You guessed the word!"})
+        return jsonify({"message": "🎉 Yay! You guessed it right!"})
     else:
-        return jsonify({"message": "❌ Wrong guess. Try again!"})
+        return jsonify({"message": "🙈 Nope! Try another word!"})
 
 if __name__ == "__main__":
     app.run(debug=True)
