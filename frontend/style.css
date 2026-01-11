@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&display=swap');
+
 * {
   box-sizing: border-box;
 }
@@ -5,76 +7,85 @@
 body {
   margin: 0;
   height: 100vh;
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  font-family: 'Baloo 2', cursive;
+  background: linear-gradient(135deg, #ffecd2, #fcb69f);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .game-container {
-  background: white;
-  padding: 30px 40px;
-  border-radius: 16px;
-  width: 350px;
+  background: #ffffff;
+  padding: 36px 40px;
+  border-radius: 24px;
+  width: 360px;
   text-align: center;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-  animation: fadeIn 0.6s ease-in-out;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+  animation: popIn 0.6s ease;
+}
+
+.emoji {
+  font-size: 48px;
+  margin-bottom: 10px;
+  animation: float 2s infinite ease-in-out;
 }
 
 h1 {
-  margin-bottom: 5px;
+  margin: 0;
+  font-size: 36px;
+  color: #ff6f61;
 }
 
 .subtitle {
   color: #666;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 input {
   width: 100%;
-  padding: 12px;
-  font-size: 16px;
-  border-radius: 8px;
-  border: 2px solid #ddd;
+  padding: 14px;
+  font-size: 18px;
+  border-radius: 14px;
+  border: 3px solid #ffe0d6;
   outline: none;
-  transition: border-color 0.3s, box-shadow 0.3s;
+  transition: all 0.3s;
 }
 
 input:focus {
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+  border-color: #ff6f61;
+  box-shadow: 0 0 0 4px rgba(255, 111, 97, 0.25);
 }
 
 button {
   width: 100%;
-  margin-top: 15px;
-  padding: 12px;
-  font-size: 16px;
-  border-radius: 8px;
+  margin-top: 18px;
+  padding: 14px;
+  font-size: 18px;
+  border-radius: 16px;
   border: none;
-  background: #667eea;
+  background: linear-gradient(135deg, #ff6f61, #ff9671);
   color: white;
   cursor: pointer;
-  transition: transform 0.2s, background 0.3s;
+  transition: transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 8px 0 #e65b50;
 }
 
 button:hover {
-  background: #5a6fe0;
   transform: translateY(-2px);
 }
 
 button:active {
-  transform: translateY(0);
+  transform: translateY(4px);
+  box-shadow: 0 4px 0 #e65b50;
 }
 
 #result {
-  margin-top: 20px;
-  font-size: 18px;
-  min-height: 24px;
+  margin-top: 22px;
+  font-size: 20px;
+  min-height: 28px;
 }
 
-/* Animations */
+/* Feedback states */
 .correct {
   color: #2ecc71;
   animation: bounce 0.6s;
@@ -85,28 +96,35 @@ button:active {
   animation: shake 0.4s;
 }
 
+/* Animations */
 @keyframes bounce {
   0% { transform: scale(1); }
-  30% { transform: scale(1.2); }
+  30% { transform: scale(1.25); }
   50% { transform: scale(0.95); }
   100% { transform: scale(1); }
 }
 
 @keyframes shake {
   0% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  50% { transform: translateX(5px); }
-  75% { transform: translateX(-5px); }
+  25% { transform: translateX(-6px); }
+  50% { transform: translateX(6px); }
+  75% { transform: translateX(-6px); }
   100% { transform: translateX(0); }
 }
 
-@keyframes fadeIn {
+@keyframes popIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: scale(0.8);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: scale(1);
   }
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
 }
